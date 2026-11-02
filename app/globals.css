@@ -10,7 +10,7 @@ body {
 }
 
 main {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 32px 16px 64px;
 }
@@ -35,10 +35,39 @@ h1 {
   margin-bottom: 24px;
 }
 
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+}
+
+.summary-card span {
+  color: #666;
+  font-size: 13px;
+}
+
+.summary-card strong {
+  color: #1d4ed8;
+  font-size: 21px;
+}
+
 .form-row {
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
+  flex: 1;
+  min-width: 0;
 }
 
 .form-row label {
@@ -48,7 +77,8 @@ h1 {
 }
 
 .form-row input,
-.form-row textarea {
+.form-row textarea,
+.form-row select {
   padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -120,11 +150,34 @@ table {
   background: #fff;
 }
 
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.toolbar .form-row {
+  margin-bottom: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
 th, td {
   text-align: left;
   padding: 10px 12px;
   border-bottom: 1px solid #eee;
   font-size: 14px;
+}
+
+td {
+  vertical-align: top;
+}
+
+.actions-cell {
+  white-space: nowrap;
 }
 
 th {
@@ -154,4 +207,28 @@ th {
   font-size: 13px;
   color: #666;
   margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 24px 12px 48px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 14px 16px;
+  }
+
+  .summary-card strong {
+    font-size: 19px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
